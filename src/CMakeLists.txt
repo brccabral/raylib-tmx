@@ -40,6 +40,8 @@ option(RAYLIB_TMX_SHARED "raylib-tmx-shared" OFF)
 set(RAYLIB_TMX_DEPS raylib tmx)
 if(UNIX)
     list(APPEND RAYLIB_TMX_DEPS m)
+else()
+    list(APPEND RAYLIB_TMX_DEPS gdi32 msvcrt msvcrtd winmm)
 endif()
 
 if(RAYLIB_TMX)

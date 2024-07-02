@@ -1,6 +1,12 @@
 # raylib-tmx-test
 add_executable(raylib-tmx-test raylib-tmx-test.c)
+
+if(WIN32)
+target_compile_options(raylib-tmx-test PRIVATE -Wall)
+else()
 target_compile_options(raylib-tmx-test PRIVATE -Wall -Wextra -Wconversion -Wsign-conversion)
+endif(WIN32)
+
 target_link_libraries(raylib-tmx-test PUBLIC
     raylib
     raylib-tmx
