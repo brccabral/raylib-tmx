@@ -7,6 +7,8 @@ target_link_libraries(raylib-tmx-example PUBLIC
 
 # Copy the resources
 if(MSVC)
+target_link_libraries(raylib-tmx-example PUBLIC gdi32 winmm)
+target_compile_options(raylib-tmx-example PRIVATE "/NODEFAULTLIB:libcmt")
 add_custom_command(TARGET raylib-tmx-example POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_CURRENT_SOURCE_DIR}/resources" "$<TARGET_FILE_DIR:raylib-tmx-example>/resources"
 )

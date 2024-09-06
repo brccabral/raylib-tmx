@@ -3,6 +3,8 @@ add_executable(raylib-tmx-test raylib-tmx-test.c)
 
 if(WIN32)
 target_compile_options(raylib-tmx-test PRIVATE -Wall)
+target_link_libraries(raylib-tmx-test PUBLIC gdi32 winmm)
+target_compile_options(raylib-tmx-test PRIVATE "/NODEFAULTLIB:libcmt")
 else()
 target_compile_options(raylib-tmx-test PRIVATE -Wall -Wextra -Wconversion -Wsign-conversion)
 endif(WIN32)
